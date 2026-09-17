@@ -240,36 +240,21 @@
     
             // 今はテスト用
             if (answer === "TEST") {
-    
-                resultMessage.textContent = "解答を受理しました。";
-                resultMessage.className = "result-message correct";
-    
-                answerInput.disabled = true;
-                submitButton.disabled = true;
-    
+
+                const examPaper = document.querySelector(".exam-paper");
+            
+                // 試験用紙の中身を一旦すべて消す
+                examPaper.innerHTML = `
+                    <div class="accepted-screen">
+                        解答を受理しました。
+                    </div>
+                `;
+            
+                // 1.5秒後に次の問題へ
                 setTimeout(() => {
-    
-                    currentQuestion = 2;
-    
-                    questionNumber.textContent = "2";
-    
-                    answerInput.value = "";
-                    answerInput.disabled = false;
-                    submitButton.disabled = false;
-    
-                    resultMessage.textContent = "";
-    
-                    answerInput.focus();
-    
-                }, 1200);
-    
-            } else {
-    
-                resultMessage.textContent = "解答が一致しません。";
-                resultMessage.className = "result-message incorrect";
-    
+                    location.reload();
+                }, 1500);
             }
-        }
     </script>
 
 </body>
