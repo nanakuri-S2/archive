@@ -155,15 +155,21 @@
             cursor: default;
         }
 
+        .exam-paper.accepted-paper {
+            width: 400px;
+            min-height: 180px;
+            padding: 30px;
+        }
+        
         .accepted-screen {
-            min-height: 300px;
+            min-height: 120px;
         
             display: flex;
             justify-content: center;
             align-items: center;
         
-            font-size: 24px;
-            letter-spacing: 4px;
+            font-size: 16px;
+            letter-spacing: 2px;
         }
     </style>
 </head>
@@ -251,20 +257,17 @@
     
             // 今はテスト用
             if (answer === "TEST") {
-
+            
                 const examPaper = document.querySelector(".exam-paper");
             
-                // 試験用紙の中身を一旦すべて消す
+                examPaper.classList.add("accepted-paper");
+            
                 examPaper.innerHTML = `
                     <div class="accepted-screen">
                         解答を受理しました。
                     </div>
                 `;
             
-                // 5秒後に次の問題へ
-                setTimeout(() => {
-                    location.reload();
-                }, 5000);
             }
         }
     </script>
