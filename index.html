@@ -86,28 +86,31 @@
             object-fit: contain;
         }
 
-        .answer-area {
-            margin-top: 30px;
+        .answer-row {
+            display: flex;
+            align-items: baseline;
+            gap: 15px;
         }
-
+        
         .answer-label {
             font-size: 16px;
-            margin-bottom: 8px;
+            white-space: nowrap;
         }
-
+        
         .answer-input {
-            width: 100%;
-
+            flex: 1;
+        
             border: none;
             border-bottom: 1px solid #333;
-
-            padding: 10px 5px;
-
+        
+            padding: 4px 5px;
+        
             font-size: 20px;
             font-family: inherit;
-
+        
             outline: none;
-
+            background: transparent;
+        
             box-sizing: border-box;
         }
 
@@ -147,7 +150,7 @@
             </h1>
 
             <div class="question-number">
-                ①
+                1
             </div>
 
         </header>
@@ -165,18 +168,22 @@
 
 
         <section class="answer-area">
-
-            <div class="answer-label">
-                解答
+        
+            <div class="answer-row">
+        
+                <label class="answer-label">
+                    解答
+                </label>
+        
+                <input
+                    class="answer-input"
+                    type="text"
+                    autocomplete="off"
+                    spellcheck="false"
+                >
+        
             </div>
-
-            <input
-                class="answer-input"
-                type="text"
-                autocomplete="off"
-                spellcheck="false"
-            >
-
+        
         </section>
 
 
