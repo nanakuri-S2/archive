@@ -171,6 +171,13 @@
             font-size: 16px;
             letter-spacing: 2px;
         }
+        .accepted-paper {
+            transition: opacity 0.5s ease;
+        }
+        
+        .accepted-paper.fade-out {
+            opacity: 0;
+        }
     </style>
 </head>
     
@@ -268,7 +275,75 @@
                     </div>
                 `;
             
+                // 2.5秒待ってからフェードアウト
+                setTimeout(() => {
+                    examPaper.classList.add("fade-out");
+                }, 2500);
+            
+                // 合計3秒後に問題②へ
+                setTimeout(() => {
+                    showQuestion2();
+                }, 3000);
             }
+        }
+
+        function showQuestion2() {
+        
+            const examPaper = document.querySelector(".exam-paper");
+        
+            examPaper.classList.remove("accepted-paper", "fade-out");
+        
+            examPaper.innerHTML = `
+                <header class="exam-header">
+        
+                    <h1 class="exam-title">
+                        中間試験
+                    </h1>
+        
+                    <div class="question-number">
+                        2
+                    </div>
+        
+                </header>
+        
+                <section class="question-area">
+        
+                    <p>
+                        ここに問題②の画像が表示されます
+                    </p>
+        
+                </section>
+        
+                <section class="answer-area">
+        
+                    <div class="answer-row">
+        
+                        <label class="answer-label">
+                            解答
+                        </label>
+        
+                        <input
+                            class="answer-input"
+                            type="text"
+                            autocomplete="off"
+                            spellcheck="false"
+                        >
+        
+                    </div>
+        
+                </section>
+        
+                <div class="result-message" id="resultMessage"></div>
+        
+                <div class="submit-area">
+        
+                    <button class="submit-button" id="submitButton">
+                        提出
+                    </button>
+        
+                </div>
+            `;
+        
         }
     </script>
 
