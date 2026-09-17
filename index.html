@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>中間試験</title>
+
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: #eeeeee;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+        }
+
+        .exam-paper {
+            width: min(900px, 90vw);
+            min-height: 600px;
+
+            background: white;
+
+            padding: 50px 70px;
+
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+
+            box-sizing: border-box;
+        }
+
+        .exam-header {
+            position: relative;
+            text-align: center;
+
+            margin-bottom: 50px;
+        }
+
+        .exam-title {
+            font-size: 32px;
+            letter-spacing: 12px;
+            margin: 0;
+        }
+
+        .question-number {
+            position: absolute;
+            right: 0;
+            top: 0;
+
+            width: 42px;
+            height: 42px;
+
+            border: 2px solid black;
+            border-radius: 50%;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 22px;
+        }
+
+        .question-area {
+            width: 100%;
+            min-height: 280px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            margin-bottom: 40px;
+        }
+
+        .question-image {
+            max-width: 100%;
+            max-height: 400px;
+            object-fit: contain;
+        }
+
+        .answer-area {
+            margin-top: 30px;
+        }
+
+        .answer-label {
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        .answer-input {
+            width: 100%;
+
+            border: none;
+            border-bottom: 1px solid #333;
+
+            padding: 10px 5px;
+
+            font-size: 20px;
+            font-family: inherit;
+
+            outline: none;
+
+            box-sizing: border-box;
+        }
+
+        .submit-area {
+            margin-top: 30px;
+            text-align: right;
+        }
+
+        .submit-button {
+            background: white;
+
+            border: 1px solid #333;
+
+            padding: 10px 35px;
+
+            font-family: inherit;
+            font-size: 16px;
+
+            cursor: pointer;
+        }
+
+        .submit-button:hover {
+            background: #f3f3f3;
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <main class="exam-paper">
+
+        <header class="exam-header">
+
+            <h1 class="exam-title">
+                中間試験
+            </h1>
+
+            <div class="question-number">
+                ①
+            </div>
+
+        </header>
+
+
+        <section class="question-area">
+
+            <!-- 後でここに問題画像を表示します -->
+
+            <p>
+                ここに問題①の画像が表示されます
+            </p>
+
+        </section>
+
+
+        <section class="answer-area">
+
+            <div class="answer-label">
+                解答
+            </div>
+
+            <input
+                class="answer-input"
+                type="text"
+                autocomplete="off"
+                spellcheck="false"
+            >
+
+        </section>
+
+
+        <div class="submit-area">
+
+            <button class="submit-button">
+                提出
+            </button>
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>
