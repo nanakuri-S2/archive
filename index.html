@@ -138,6 +138,59 @@
     </style>
 </head>
 
+<script>
+    const answerInput = document.querySelector(".answer-input");
+    const submitButton = document.getElementById("submitButton");
+    const resultMessage = document.getElementById("resultMessage");
+    const questionNumber = document.querySelector(".question-number");
+
+    let currentQuestion = 1;
+
+    submitButton.addEventListener("click", submitAnswer);
+
+    answerInput.addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+            submitAnswer();
+        }
+    });
+
+    function submitAnswer() {
+
+        const answer = answerInput.value.trim().toUpperCase();
+
+        // 今はテスト用
+        if (answer === "TEST") {
+
+            resultMessage.textContent = "解答を受理しました。";
+            resultMessage.className = "result-message correct";
+
+            answerInput.disabled = true;
+            submitButton.disabled = true;
+
+            setTimeout(() => {
+
+                currentQuestion = 2;
+
+                questionNumber.textContent = "2";
+
+                answerInput.value = "";
+                answerInput.disabled = false;
+                submitButton.disabled = false;
+
+                resultMessage.textContent = "";
+
+                answerInput.focus();
+
+            }, 1200);
+
+        } else {
+
+            resultMessage.textContent = "解答が一致しません。";
+            resultMessage.className = "result-message incorrect";
+
+        }
+    }
+</script>
 
 <body>
 
@@ -187,12 +240,14 @@
         </section>
 
 
+        <div class="result-message" id="resultMessage"></div>
+        
         <div class="submit-area">
-
-            <button class="submit-button">
+        
+            <button class="submit-button" id="submitButton">
                 提出
             </button>
-
+        
         </div>
 
     </main>
