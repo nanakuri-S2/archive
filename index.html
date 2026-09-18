@@ -168,10 +168,10 @@
         ========================= */
         .answer-row {
             position: relative;
-    
+        
             display: flex;
             align-items: center;
-    
+        
             gap: 14px;
         }
     
@@ -245,38 +245,33 @@
     
         .submit-button {
             position: relative;
-    
-            min-width: 135px;
-    
-            padding: 13px 32px;
-    
+        
+            min-width: 120px;
+            flex-shrink: 0;
+        
+            padding: 10px 25px;
+        
             background:
                 radial-gradient(
                     circle,
                     rgba(120, 72, 38, 0.08),
                     transparent 70%
                 );
-    
+        
             border: 1px solid #442719;
-    
+        
             outline: 1px solid #765039;
             outline-offset: -5px;
-    
+        
             color: #382015;
-    
-            font-family: "Shippori Mincho", "Yu Mincho", "Hiragino Mincho ProN", serif;
-    
-            font-size: 21px;
+        
+            font-family: "Shippori Mincho", "Yu Mincho", serif;
+        
+            font-size: 18px;
             font-weight: 500;
-    
             letter-spacing: 4px;
-    
+        
             cursor: pointer;
-    
-            transition:
-                background 0.3s ease,
-                box-shadow 0.3s ease,
-                transform 0.15s ease;
         }
     
     
@@ -424,24 +419,27 @@
         </section>
 
 
-        <section class="answer-area">
+    <section class="answer-area">
+        <div class="answer-row">
+            <label class="answer-label">
+                解答
+            </label>
+    
+            <input
+                class="answer-input"
+                type="text"
+                autocomplete="off"
+                spellcheck="false"
+            >
+    
+            <button class="submit-button" id="submitButton">
+                提出
+            </button>
+    
+        </div>
         
-            <div class="answer-row">
-        
-                <label class="answer-label">
-                    解答
-                </label>
-        
-                <input
-                    class="answer-input"
-                    type="text"
-                    autocomplete="off"
-                    spellcheck="false"
-                >
-        
-            </div>
-        
-        </section>
+        <div class="result-message" id="resultMessage"></div>
+    </section>
 
 
         <div class="result-message" id="resultMessage"></div>
