@@ -19,6 +19,7 @@
         body {
             margin: 0;
             min-height: 100vh;
+            user-select: none;
     
             background-image: url("background.png");
             background-size: cover;
@@ -41,6 +42,7 @@
         .exam-paper {
             width: min(1200px, 94vw);
             min-height: 700px;
+            position: relative;
     
             background-image: url("paper.png");
             background-size: 100% 100%;
@@ -86,8 +88,9 @@
                 0 0 1px rgba(80, 40, 20, 0.5);
         }
     
-    
-        /* タイトル下の魔術装飾 */
+        /* =========================
+            タイトル下の魔術装飾
+        ========================= */
         .exam-title::after {
             content: "◇ ─────── ✦ ─────── ◇";
     
@@ -108,15 +111,14 @@
             white-space: nowrap;
         }
     
-    
         /* =========================
            問題番号
         ========================= */
         .question-number {
             position: absolute;
     
-            right: 25px;
-            top: -5px;
+            right: 40px;
+            top: 5px;
     
             width: 52px;
             height: 52px;
@@ -125,24 +127,14 @@
             justify-content: center;
             align-items: center;
     
-            border: 1px solid #3a2114;
-            border-radius: 50%;
-    
-            outline: 1px solid #795039;
-            outline-offset: 4px;
-    
-            font-size: 22px;
+            font-size: 50px;
     
             color: #3a2114;
-    
-            box-shadow:
-                inset 0 0 0 3px rgba(90, 50, 30, 0.08);
         }
     
         /* =========================
            問題表示部分
         ========================= */
-    
         .question-area {
             width: 100%;
             min-height: 280px;
@@ -154,7 +146,6 @@
             margin-bottom: 40px;
         }
     
-    
         .question-image {
             max-width: 100%;
             max-height: 400px;
@@ -162,21 +153,20 @@
             object-fit: contain;
         }
     
-    
         /* =========================
            解答欄
         ========================= */
         .answer-row {
-            position: relative;
-        
             display: flex;
             align-items: center;
-        
-            gap: 24px;
+
+            margin-left: 60px;
+
+            gap: 18px;
         }
     
         .answer-label {
-            font-size: 20px;
+            font-size: 25px;
             font-weight: 600;
     
             white-space: nowrap;
@@ -184,37 +174,65 @@
             color: #3a2114;
         }
     
-        .answer-label::after {
-            content: "✦";
-            margin-left: 8px;
-            font-size: 8px;
-            color: #795039;
-        }
-    
         .answer-input {
             flex: 1;
-            
+            min-width: 0;
+            user-select: text;
+
             border: none;
             border-bottom: 1px solid #70442b;
-            padding: 5px 8px;
-            
-            font-size: 20px;
-            font-family: "Shippori Mincho", "Yu Mincho", "Hiragino Mincho ProN", serif;
-            color: #3a2114;
-            
-            outline: none;
+
             background: transparent;
+
+            margin: 0 -1px;
+
+            padding: 4px 8px 3px;
+
+            font-size: 20px;
+            font-family: "Shippori Mincho", "Yu Mincho", serif;
+
+            color: #3a2114;
+            outline: none;
+
             box-sizing: border-box;
         }
-    
-    
+            
         .answer-input:focus {
             border-bottom: 1px solid #3a2114;
     
             box-shadow:
                 0 4px 5px -5px rgba(80, 40, 20, 0.8);
         }
-    
+
+        .answer-line {
+            display: flex;
+            align-items: center;
+
+            flex: 1;
+            max-width: 1200px;
+            min-width: 0;
+        }
+
+        .answer-diamond {
+            position: relative;
+
+            font-size: 10px;
+            line-height: 1;
+            color: #70442b;
+
+            flex-shrink: 0;
+
+            transform: translateY(18px);
+        }
+
+        .answer-diamond:first-child {
+            margin-right: -1px;
+        }
+
+        .answer-diamond:last-child {
+            margin-left: -1px;
+        }
+
         /* =========================
            不正解表示
         ========================= */
@@ -224,32 +242,34 @@
             font-size: 14px;
         }
     
-    
         .result-message.incorrect {
+            font-size: 18px;
+            margin-top: -5px;
+            margin-left: 140px;
             color: #702c23;
         }
     
         /* =========================
            提出エリア
         ========================= */
-    
         .submit-area {
-            margin-top: 12px;
+            margin-top: 1px;
             text-align: right;
-            padding-right: 45px;
+            padding-left: 40px;
+            padding-right: 20px;
+            transform: translateY(-5px);
         }
     
         /* =========================
            魔術提出ボタン
         ========================= */
-    
         .submit-button {
             position: relative;
         
-            min-width: 110px;
+            min-width: 130px;
             flex-shrink: 0;
         
-            padding: 9px 22px;
+            padding: 11px 27px;
         
             background:
                 radial-gradient(
@@ -267,41 +287,12 @@
         
             font-family: "Shippori Mincho", "Yu Mincho", serif;
         
-            font-size: 17px;
+            font-size: 21px;
             font-weight: 500;
             letter-spacing: 4px;
         
             cursor: pointer;
         }
-    
-    
-        .submit-button::before {
-            content: "◇";
-    
-            position: absolute;
-    
-            left: 7px;
-            top: 4px;
-    
-            font-size: 8px;
-    
-            color: #70442b;
-        }
-    
-    
-        .submit-button::after {
-            content: "◇";
-    
-            position: absolute;
-    
-            right: 7px;
-            bottom: 4px;
-    
-            font-size: 8px;
-    
-            color: #70442b;
-        }
-    
     
         .submit-button:hover {
             background:
@@ -316,23 +307,19 @@
                 inset 0 0 10px rgba(105, 62, 32, 0.08);
         }
     
-    
         .submit-button:active {
             transform: scale(0.98);
         }
     
-    
         /* =========================
            解答受理画面
         ========================= */
-    
         .exam-paper.accepted-paper {
             width: 400px;
             min-height: 180px;
     
             padding: 30px;
         }
-    
     
         .accepted-screen {
             min-height: 120px;
@@ -348,18 +335,68 @@
             color: #3a2114;
         }
     
-    
-        /* 受理画面フェードアウト */
-    
+        /* =========================
+            クリア遷移
+        =========================*/
         .accepted-paper.fade-out {
             opacity: 0;
         }
-    
+
+        /* =========================
+            画面遷移 
+        =========================*/
+        .exam-paper.page-fade-out {
+            opacity: 0;
+        }
+
+        .exam-paper.page-fade-in {
+            opacity: 1;
+        }
+
+        /* =========================
+            問題移動
+        ========================= */
+        .question-navigation {
+            position: absolute;
+
+            left: 50%;
+            bottom: -32px;
+
+            transform: translateX(-50%);
+
+            width: 80%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-button {
+            border: none;
+            background: rgba(255, 255, 255, 0.2);
+
+            padding: 6px 12px;
+
+            font-family: "Shippori Mincho", "Yu Mincho", serif;
+            font-size: 22px;
+
+            color: #3a2114;
+
+            cursor: pointer;
+
+            box-shadow: 0 0 12px 8px rgba(255, 255, 255, 0.18);
+        }
+
+        .nav-button:hover {
+            color: #1f100a;
+            background: rgba(255, 255, 255, 0.28);
+
+            box-shadow: 0 0 14px 9px rgba(255, 255, 255, 0.25);
+        }
     
         /* =========================
            スマホなど小さい画面
         ========================= */
-    
         @media (max-width: 700px) {
     
             .exam-paper {
@@ -398,7 +435,7 @@
         <header class="exam-header">
 
             <h1 class="exam-title">
-                中間試験
+                特別課題
             </h1>
 
             <div class="question-number">
@@ -410,7 +447,7 @@
 
         <section class="question-area">
 
-            <!-- 後でここに問題画像を表示します -->
+            <!-- 後でここに問題画像を入力 -->
 
             <p>
                 ここに問題①の画像が表示されます
@@ -424,16 +461,20 @@
             <label class="answer-label">
                 解答
             </label>
-    
-            <input
-                class="answer-input"
-                type="text"
-                autocomplete="off"
-                spellcheck="false"
-            >
-    
-            <div class="result-message" id="resultMessage"></div>
-            
+
+            <div class="answer-line">
+                <span class="answer-diamond">♦</span>
+
+                <input
+                    class="answer-input"
+                    type="text"
+                    autocomplete="off"
+                    spellcheck="false"
+                >
+
+                <span class="answer-diamond">♦</span>
+            </div>
+
             <div class="submit-area">
             
                 <button class="submit-button" id="submitButton">
@@ -441,6 +482,7 @@
                 </button>
             
             </div>
+
     
         </div>
         
@@ -451,107 +493,269 @@
 
     
     <script>
-        const answerInput = document.querySelector(".answer-input");
-        const submitButton = document.getElementById("submitButton");
-        const resultMessage = document.getElementById("resultMessage");
-        const questionNumber = document.querySelector(".question-number");
-    
+        // 現在の問題が何なのかの初期値設定
         let currentQuestion = 1;
-    
-        submitButton.addEventListener("click", submitAnswer);
-    
-        answerInput.addEventListener("keydown", function(event) {
-            if (event.key === "Enter") {
-                submitAnswer();
-            }
-        });
-    
+        let highestQuestion = 1;
+
+        const correctAnswers = {
+            1: "TEST1",
+            2: "TEST2",
+            3: "TEST3",
+            4: "TEST4",
+            5: "TEST5",
+            6: "TEST6"
+        }
+
+        setupQuestion();
+
+        function setupQuestion() {
+            const answerInput = document.querySelector(".answer-input");
+            const submitButton = document.getElementById("submitButton");
+
+            // ボタンでの提出判定
+            submitButton.addEventListener("click", submitAnswer)
+
+            // Enterキーでの提出判定
+            answerInput.addEventListener("keydown", function(event){
+                if (event.key === "Enter"){
+                    submitAnswer();
+                }
+            });
+        }
+
         function submitAnswer() {
-    
+            const answerInput = document.querySelector(".answer-input");
+            const resultMessage = document.getElementById("resultMessage");
             const answer = answerInput.value.trim().toUpperCase();
-    
-            // 今はテスト用
-            if (answer === "TEST") {
+            const isCorrect = answer === correctAnswers[currentQuestion];
+        
+            // 無入力時にエラーを出すように
+            if (answer === ""){
+                resultMessage.textContent = "解答を入力してください。";
+                resultMessage.className = "result-message incorrect";
+                
+                return;
+            }
+
+            // 1問目の判定
+            if (isCorrect) {
+                console.log(
+                    currentQuestion + "問目:正解"
+            );
+            } else {
+                console.log(
+                    currentQuestion + "問目:不正解"
+            )}
             
-                const examPaper = document.querySelector(".exam-paper");
-            
+            // 解答受理判定に飛ばす
+            showAcceptedScreen();
+        }
+
+        function showAcceptedScreen() {
+            const examPaper = document.querySelector(".exam-paper")
+
+            examPaper.classList.add("page-fade-out");
+
+            // 2.5秒後にフェードアウト
+            setTimeout(() => {
                 examPaper.classList.add("accepted-paper");
-            
                 examPaper.innerHTML = `
                     <div class="accepted-screen">
                         解答を受理しました。
                     </div>
                 `;
-            
-                // 2.5秒待ってからフェードアウト
-                setTimeout(() => {
-                    examPaper.classList.add("fade-out");
-                }, 2500);
-            
-                // 合計3秒後に問題②へ
-                setTimeout(() => {
-                    showQuestion2();
-                }, 3000);
-            }
+
+                    // 受理画面をフェードイン
+                    requestAnimationFrame(() => {
+                        requestAnimationFrame(() => {
+                            examPaper.classList.remove("page-fade-out");
+                        });
+                    });
+            }, 500);
+
+            setTimeout(() => {
+                examPaper.classList.add("page-fade-out");
+            }, 3000);
+
+            // 3秒後
+            setTimeout(() => {
+                if (currentQuestion < 6) {
+                    currentQuestion++;
+
+                    // 到達した最大の問題番号を記録
+                    if (currentQuestion > highestQuestion) {
+                        highestQuestion = currentQuestion;
+                    }
+
+                    showQuestion();
+
+                    // 次の問題は透明状態からスタート
+                    examPaper.classList.add("page-fade-out");
+
+                    // 次の問題をフェードイン
+                    requestAnimationFrame(() => {
+                        requestAnimationFrame(() => {
+                            examPaper.classList.remove("page-fade-out");
+                        });
+                    });
+                } else {
+                    showResult();
+
+                    examPaper.classList.add("page-fade-out");
+
+                    requestAnimationFrame(() => {
+                        requestAnimationFrame(() => {
+                            examPaper.classList.remove("page-fade-out");
+                        });
+                    });
+                }
+            }, 3500);
         }
 
-        function showQuestion2() {
-        
+        function moveQuestion(newQuestion) {
             const examPaper = document.querySelector(".exam-paper");
-        
-            examPaper.classList.remove("accepted-paper", "fade-out");
-        
+
+            // フェードアウト
+            examPaper.classList.add("page-fade-out");
+
+            setTimeout(() => {
+                // 問題番号を変更
+                currentQuestion = newQuestion;
+                // 新しい問題を表示
+                showQuestion();
+
+                // 一旦透明のまま
+                examPaper.classList.add("page-fade-out");
+
+                // 次の描画タイミングでフェードイン
+                requestAnimationFrame(() => {
+                    requestAnimationFrame(() => {
+                        examPaper.classList.remove("page-fade-out");
+                    });
+                });
+            }, 500);
+        }
+
+        // 次問題表示処理
+        function showQuestion() {
+            const examPaper = document.querySelector(".exam-paper")
+
+            // 受理画面用の状態を解除
+            examPaper.classList.remove(
+                "accepted-paper",
+                "fade-out"
+            );
+
             examPaper.innerHTML = `
+
                 <header class="exam-header">
-        
+
                     <h1 class="exam-title">
-                        中間試験
+                        特別課題
                     </h1>
-        
+
                     <div class="question-number">
-                        2
+                        ${currentQuestion}
                     </div>
-        
+
                 </header>
-        
+
+
                 <section class="question-area">
-        
+
                     <p>
-                        ここに問題②の画像が表示されます
+                        ここに問題${currentQuestion}の画像が表示されます
                     </p>
-        
+
                 </section>
-        
+
+
                 <section class="answer-area">
-        
+
                     <div class="answer-row">
-        
+
                         <label class="answer-label">
                             解答
                         </label>
-        
-                        <input
-                            class="answer-input"
-                            type="text"
-                            autocomplete="off"
-                            spellcheck="false"
-                        >
-        
+
+
+                        <div class="answer-line">
+
+                            <span class="answer-diamond">
+                                ♦
+                            </span>
+
+                            <input
+                                class="answer-input"
+                                type="text"
+                                autocomplete="off"
+                                spellcheck="false"
+                            >
+
+                            <span class="answer-diamond">
+                                ♦
+                            </span>
+
+                        </div>
+
+
+                        <div class="submit-area">
+
+                            <button
+                                class="submit-button"
+                                id="submitButton"
+                            >
+                                提出
+                            </button>
+
+                        </div>
+
                     </div>
-        
+
+
+                    <div
+                        class="result-message"
+                        id="resultMessage"
+                    ></div>
+
+                    <div class="question-navigation">
+                        ${currentQuestion > 1
+                            ? `<button class="nav-button" onclick="moveQuestion(${currentQuestion - 1})">
+                                ‹ 前の問題
+                            </button>`
+                            : `<span></span>`
+                        }
+
+                        ${currentQuestion < highestQuestion
+                            ? `<button class="nav-button" onclick="moveQuestion(${currentQuestion + 1})">
+                                次の問題 ›
+                            </button>`
+                            : `<span></span>`
+                        }
+                    </div>
                 </section>
-        
-                <div class="result-message" id="resultMessage"></div>
-        
-                <div class="submit-area">
-        
-                    <button class="submit-button" id="submitButton">
-                        提出
-                    </button>
-        
+            `;
+
+            // 新規作成した入力欄とボタンに属性を再設定する
+            setupQuestion();
+
+            document.querySelector(".answer-input").focus();
+        }
+
+        // 終了判定
+        function showResult() {
+            const examPaper = document.querySelector(".exam-paper");
+
+            examPaper.classList.remove(
+                "accepted-paper",
+                "fade-out"
+            );
+
+            examPaper.innerHTML = `
+                <div class="accepted-screen">
+                    全ての解答を受理しました。
                 </div>
             `;
-        
         }
     </script>
 
