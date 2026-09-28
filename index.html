@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>中間試験</title>
+    <title>特別課題</title>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -561,7 +561,10 @@
                 examPaper.classList.add("accepted-paper");
                 examPaper.innerHTML = `
                     <div class="accepted-screen">
-                        解答を受理しました。
+                        ${currentQuestion === 6
+                            ? "全ての解答を受理しました。"
+                            : "解答を受理しました。"
+                        }
                     </div>
                 `;
 
@@ -753,7 +756,7 @@
 
             examPaper.innerHTML = `
                 <div class="accepted-screen">
-                    全ての解答を受理しました。
+                    大謎画面(最終回答画面)
                 </div>
             `;
         }
